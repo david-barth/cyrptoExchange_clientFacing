@@ -13,9 +13,13 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>server</name>
     <description>server</description>
+
     <properties>
         <java.version>11</java.version>
+        <jasypt-spring-boot-starter.version>3.0.4</jasypt-spring-boot-starter.version>
     </properties>
+
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -37,6 +41,13 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+
+        <!-- Encryption for application.properties -->
+        <dependency>
+            <groupId>com.github.ulisesbocchio</groupId>
+            <artifactId>jasypt-spring-boot-starter</artifactId>
+            <version>${jasypt-spring-boot-starter.version}</version>
         </dependency>
     </dependencies>
 
