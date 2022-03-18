@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(name = "/users")
 public class UserController {
 
 
@@ -24,4 +23,10 @@ public class UserController {
     List<User> getUsersByName(@PathVariable String name) {
         return userService.findAllByName(name);
     }
+
+    @RequestMapping("/hello")
+    List<User> sayHello() {
+        return userService.findAllByName("David");
+    }
+
 }

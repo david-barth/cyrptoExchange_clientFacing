@@ -49,6 +49,10 @@
             <artifactId>jasypt-spring-boot-starter</artifactId>
             <version>${jasypt-spring-boot-starter.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
