@@ -1,6 +1,5 @@
 package com.crypto.exchange.server.entity;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -9,7 +8,6 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "users")
-@AllArgsConstructor
 @NoArgsConstructor
 public class User {
 
@@ -20,7 +18,7 @@ public class User {
     @Setter
     private int userID;
 
-    @Column
+    @Column(name = "name")
     @Getter
     @Setter
     private String name;
