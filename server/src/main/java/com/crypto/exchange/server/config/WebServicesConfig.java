@@ -16,7 +16,7 @@ public class WebServicesConfig {
 
     @Bean
     public WebClient webClient() {
-        WebClient webclient = WebClient.create(" https://data.messari.io/api");
+        WebClient webclient = WebClient.create("https://data.messari.io/api");
         return webclient;
     }
 
