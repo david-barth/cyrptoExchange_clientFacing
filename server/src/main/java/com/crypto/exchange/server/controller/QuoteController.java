@@ -1,24 +1,22 @@
 package com.crypto.exchange.server.controller;
 
-import com.crypto.exchange.server.entity.Quote;
+import com.crypto.exchange.server.entity.domain.Profile;
 import com.crypto.exchange.server.service.QuoteService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
-import reactor.core.publisher.Mono;
 
-import java.util.List;
 
 @RestController
+@AllArgsConstructor
 public class QuoteController {
 
-    @Autowired
     private QuoteService quoteService;
 
-    @GetMapping("getQuote/{assetName}")
-    public Quote getAssetQuote(@PathVariable String assetName) {
-        return quoteService.fetchQuoteInfo("/v1/assets/btc/metrics");
+    @GetMapping("getProfile/{assetName}")
+    public Profile getAssetQuote(@PathVariable String assetName) {
+        return quoteService.fetchQuoteInfo("/v2/assets/btc/profile");
     }
 
 }

@@ -1,27 +1,24 @@
 package com.crypto.exchange.server.config;
 
-import com.crypto.exchange.server.service.QuoteService;
-import com.crypto.exchange.server.service.UserService;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.web.reactive.function.client.WebClient;
 
+
 @Configuration
+@PropertySource("classpath:externalAPIkeys.properties")
 public class WebServicesConfig {
 
-    @Bean
-    public UserService userService() {
-        return new UserService();
-    }
+    @Value("${messari.key}")
+    private String messariAPIKey;
 
-    @Bean
+    @Bean("messariWebClient")
     public WebClient webClient() {
-        WebClient webclient = WebClient.create("https://data.messari.io/api");
-        return webclient;
-    }
-
-    @Bean
-    public QuoteService quoteService() {
-        return new QuoteService(webClient());
+        return WebClient.builder()
+                .baseUrl("https://data.messari.io/api")
+                .defaultHeader("x-messari-api-key", messariAPIKey)
+                .build();
     }
 }
