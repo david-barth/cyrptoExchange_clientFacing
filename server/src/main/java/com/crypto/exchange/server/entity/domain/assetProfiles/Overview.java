@@ -1,4 +1,4 @@
-package com.crypto.exchange.server.entity.domain;
+package com.crypto.exchange.server.entity.domain.assetProfiles;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,6 +15,4 @@ public class Overview {
     String sector;
     String project_details;
     List<Links> official_links;
-    List<RoadMapItem> roadmap;
-    Contributors contributors;
 }

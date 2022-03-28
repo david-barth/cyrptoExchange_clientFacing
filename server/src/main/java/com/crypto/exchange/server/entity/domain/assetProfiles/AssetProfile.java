@@ -1,4 +1,4 @@
-package com.crypto.exchange.server.entity.domain;
+package com.crypto.exchange.server.entity.domain.assetProfiles;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,4 +9,5 @@ import lombok.Setter;
 @Setter
 public class AssetProfile {
     GeneralData general;
+    Contributors contributors;
 }

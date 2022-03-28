@@ -1,4 +1,4 @@
-package com.crypto.exchange.server.entity.domain;
+package com.crypto.exchange.server.entity.domain.assetProfiles;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
