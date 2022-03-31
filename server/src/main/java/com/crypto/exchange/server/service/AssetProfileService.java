@@ -14,11 +14,15 @@ public class AssetProfileService {
     private WebClient cryptoInfoWebClient;
 
     public Profile fetchAssetProfileInfo(String assetURI) {
-        return cryptoInfoWebClient.get()
+        Profile assetProfile = cryptoInfoWebClient.get()
                 .uri(assetURI)
                 .retrieve()
                 .bodyToMono(Profile.class)
                 .block();
+
+        profileRepo.saveAssetProfile(assetProfile);
+
+        return assetProfile;
     }
 
 }

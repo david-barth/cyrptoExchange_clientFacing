@@ -32,5 +32,6 @@ public class Overview {
     String project_details;
 
     @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "FK_officialAssetLink_id")
     List<Link> official_links;
 }

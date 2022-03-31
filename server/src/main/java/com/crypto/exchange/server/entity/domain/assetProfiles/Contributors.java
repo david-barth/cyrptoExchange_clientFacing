@@ -11,7 +11,7 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-@Table(name = "contributors")
+@Table(name = "contributorgroups")
 public class Contributors {
 
     @Id
@@ -19,11 +19,7 @@ public class Contributors {
     @Column(name = "ID")
     private int ID;
 
-    //CONTINUATION:
-        //A. Create table of for contributor groupings
-        //B. Add necessary annotations to create mapping for table.
-
-
-
+    @OneToMany
+    @JoinColumn(name = "FK_contributor_id")
     List<Contributor> individuals;
 }

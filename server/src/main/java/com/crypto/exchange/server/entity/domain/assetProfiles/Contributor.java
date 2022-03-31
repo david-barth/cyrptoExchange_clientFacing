@@ -9,12 +9,30 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Getter
 @Setter
-@Embeddable
+@Entity
+@Table(name = "contributors")
 public class Contributor {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID")
+    private int ID;
+
+    @Column(name = "slug")
     String slug;
+
+    @Column(name = "first_name")
     String first_name;
+
+    @Column(name = "last_name")
     String last_name;
+
+    @Column(name = "title")
     String title;
+
+    @Column(name = "description")
     String description;
+
+    @Column(name = "avatar_url")
     String avatar_url;
 }

@@ -18,11 +18,12 @@ public class AssetProfile {
     @Column(name = "ID")
     int ID;
 
-    @Column(name = "FK_generalData_id")
+
     @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "FK_generalData_id")
     GeneralData general;
 
-    @Column(name = "contributors_id")
     @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "FK_contributorGroup_id")
     Contributors contributors;
 }

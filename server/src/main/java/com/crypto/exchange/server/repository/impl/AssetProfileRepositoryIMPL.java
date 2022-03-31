@@ -6,16 +6,19 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
+import javax.transaction.Transactional;
 
 
 @Repository
 @AllArgsConstructor
+@Transactional
 public class AssetProfileRepositoryIMPL implements AssetProfileRepository {
 
     private EntityManager entityManager;
 
-    public Profile getAssetProfile(String assetName) {
-
+    public void saveAssetProfile(Profile assetProfile) {
+        //Continuation: Debug why assetProfile is an unknown type / entity.
+        entityManager.persist(assetProfile);
     }
 
 }

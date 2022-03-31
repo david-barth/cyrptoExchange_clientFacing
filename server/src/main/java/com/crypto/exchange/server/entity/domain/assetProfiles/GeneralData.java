@@ -18,11 +18,11 @@ public class GeneralData {
     @Column(name = "ID")
     int ID;
 
-    @Column(name = "FK_overview_id")
     @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "FK_overview_id")
     Overview overview;
 
-    @Column(name = "FK_roadmap_id")
     @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "FK_roadmap_id")
     List<RoadMapItem> roadmap;
 }
