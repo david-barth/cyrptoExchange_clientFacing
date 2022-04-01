@@ -17,8 +17,12 @@ public class AssetProfileRepositoryIMPL implements AssetProfileRepository {
     private EntityManager entityManager;
 
     public void saveAssetProfile(Profile assetProfile) {
-        //Continuation: Debug why assetProfile is an unknown type / entity.
-        entityManager.persist(assetProfile);
+
+        //Issue is definitely linked to DTO structure.
+        //Best to either use DAO <-> DTO mapping (e.g. MapStruct)
+        //Or figure out how to reimplement mapping relationships from ground up.  
+        entityManager.persist(assetProfile.getData().getProfile().getGeneral().getOverview().getOfficial_links().get(0));
+
     }
 
 }
