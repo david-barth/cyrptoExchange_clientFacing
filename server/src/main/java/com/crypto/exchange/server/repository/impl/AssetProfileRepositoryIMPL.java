@@ -1,5 +1,6 @@
 package com.crypto.exchange.server.repository.impl;
 
+import com.crypto.exchange.server.entity.domain.assetProfiles.Contributors;
 import com.crypto.exchange.server.entity.domain.assetProfiles.Profile;
 import com.crypto.exchange.server.repository.AssetProfileRepository;
 import lombok.AllArgsConstructor;
@@ -18,10 +19,12 @@ public class AssetProfileRepositoryIMPL implements AssetProfileRepository {
 
     public void saveAssetProfile(Profile assetProfile) {
 
-        //Issue is definitely linked to DTO structure.
-        //Best to either use DAO <-> DTO mapping (e.g. MapStruct)
-        //Or figure out how to reimplement mapping relationships from ground up.  
-        entityManager.persist(assetProfile.getData().getProfile().getGeneral().getOverview().getOfficial_links().get(0));
+        //Continuation:
+            //Debugging => ContributorGroup saved first before contributors.
+            //Need to figure out the correct direction and annotation combination to save the contributor + contributor group pairing. 
+
+        Contributors contributorsExample = assetProfile.getData().getProfile().getContributors();
+        entityManager.persist(contributorsExample);
 
     }
 

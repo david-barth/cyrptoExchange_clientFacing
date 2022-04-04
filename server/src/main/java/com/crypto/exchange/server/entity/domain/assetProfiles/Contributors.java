@@ -19,7 +19,6 @@ public class Contributors {
     @Column(name = "ID")
     private int ID;
 
-    @OneToMany
-    @JoinColumn(name = "FK_contributor_id")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "contributorGroup")
     List<Contributor> individuals;
 }
