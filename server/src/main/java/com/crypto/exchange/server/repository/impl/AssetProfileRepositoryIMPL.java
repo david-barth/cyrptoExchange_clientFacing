@@ -21,7 +21,7 @@ public class AssetProfileRepositoryIMPL implements AssetProfileRepository {
 
         //Continuation:
             //Debugging => ContributorGroup saved first before contributors.
-            //Need to figure out the correct direction and annotation combination to save the contributor + contributor group pairing. 
+            //Need to figure out the correct direction and annotation combination to save the contributor + contributor group pairing.
 
         Contributors contributorsExample = assetProfile.getData().getProfile().getContributors();
         entityManager.persist(contributorsExample);

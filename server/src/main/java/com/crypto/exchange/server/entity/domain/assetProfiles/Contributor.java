@@ -18,10 +18,6 @@ public class Contributor {
     @Column(name = "ID")
     private int ID;
 
-    @ManyToOne
-    @JoinColumn(name = "FK_contributorGroup_id")
-    Contributors contributorGroup;
-
     @Column(name = "slug")
     String slug;
 
