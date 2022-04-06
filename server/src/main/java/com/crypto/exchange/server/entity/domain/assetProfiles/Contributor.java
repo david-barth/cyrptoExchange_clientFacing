@@ -1,5 +1,6 @@
 package com.crypto.exchange.server.entity.domain.assetProfiles;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -17,6 +18,11 @@ public class Contributor {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
     private int ID;
+
+    @ManyToOne
+    @JoinColumn(name = "contributor_group_id")
+    @JsonBackReference
+    Contributors contributors;
 
     @Column(name = "slug")
     String slug;

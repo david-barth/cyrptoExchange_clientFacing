@@ -1,5 +1,6 @@
 package com.crypto.exchange.server.repository.impl;
 
+import com.crypto.exchange.server.entity.domain.assetProfiles.Contributor;
 import com.crypto.exchange.server.entity.domain.assetProfiles.Contributors;
 import com.crypto.exchange.server.entity.domain.assetProfiles.Profile;
 import com.crypto.exchange.server.repository.AssetProfileRepository;
@@ -19,13 +20,16 @@ public class AssetProfileRepositoryIMPL implements AssetProfileRepository {
 
     public void saveAssetProfile(Profile assetProfile) {
 
-        //Continuation:
-            //Debugging => ContributorGroup saved first before contributors.
-            //Need to figure out the correct direction and annotation combination to save the contributor + contributor group pairing.
-
+        //Opened Transaction
+        //Add Contributor group to Contributor to ensure bi-directionality is obeyed:
         Contributors contributorsExample = assetProfile.getData().getProfile().getContributors();
-        entityManager.persist(contributorsExample);
 
+        for (Contributor contributor : contributorsExample.getIndividuals()) {
+            contributor.setContributors(contributorsExample);
+        }
+
+        entityManager.persist(contributorsExample);
+        //Closed Transaction
     }
 
 }

@@ -1,5 +1,6 @@
 package com.crypto.exchange.server.entity.domain.assetProfiles;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -19,9 +20,8 @@ public class Contributors {
     @Column(name = "ID")
     private int ID;
 
-
-    //Continuation: Need to figure out how to have Hibernate refer to a pre-existing foreign key rather than creating a key with @JoinColumn
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "contributorGroup_id", insertable = false, updatable = false)
+    @OneToMany(mappedBy = "contributors", cascade = CascadeType.ALL)
+    @JsonManagedReference
     List<Contributor> individuals;
+
 }
