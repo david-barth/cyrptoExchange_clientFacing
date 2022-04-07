@@ -19,11 +19,6 @@ public class Contributor {
     @Column(name = "ID")
     private int ID;
 
-    @ManyToOne
-    @JoinColumn(name = "contributor_group_id")
-    @JsonBackReference
-    Contributors contributors;
-
     @Column(name = "slug")
     String slug;
 

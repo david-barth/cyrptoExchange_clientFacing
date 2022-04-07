@@ -3,9 +3,10 @@ package com.crypto.exchange.server.entity.domain.assetProfiles;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
-import java.util.List;
+import java.util.Set;
 
 @NoArgsConstructor
 @Getter
@@ -31,7 +32,8 @@ public class Overview {
     @Column(name = "project_details")
     String project_details;
 
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "FK_officialAssetLink_id")
-    List<Link> official_links;
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @org.hibernate.annotations.Fetch(FetchMode.SELECT)
+    @JoinColumn(name = "assetoverview_id")
+    Set<Link> official_links;
 }

@@ -19,11 +19,11 @@ public class AssetProfile {
     int ID;
 
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "FK_generalData_id")
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "generaldata_id")
     GeneralData general;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "FK_contributorGroup_id")
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "contributor_group_id")
     Contributors contributors;
 }

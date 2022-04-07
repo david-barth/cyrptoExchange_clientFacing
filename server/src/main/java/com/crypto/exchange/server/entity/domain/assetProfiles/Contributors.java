@@ -1,12 +1,12 @@
 package com.crypto.exchange.server.entity.domain.assetProfiles;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
-import java.util.List;
+import java.util.Set;
 
 @NoArgsConstructor
 @Getter
@@ -14,14 +14,13 @@ import java.util.List;
 @Entity
 @Table(name = "contributorgroups")
 public class Contributors {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
     private int ID;
 
-    @OneToMany(mappedBy = "contributors", cascade = CascadeType.ALL)
-    @JsonManagedReference
-    List<Contributor> individuals;
-
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @org.hibernate.annotations.Fetch(FetchMode.SELECT)
+    @JoinColumn(name = "contributor_group_id")
+    Set<Contributor> individuals;
 }
