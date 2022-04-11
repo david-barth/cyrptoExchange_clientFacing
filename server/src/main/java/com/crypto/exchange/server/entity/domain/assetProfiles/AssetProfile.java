@@ -14,16 +14,14 @@ import javax.persistence.*;
 public class AssetProfile {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID")
-    int ID;
-
+    @Column(name = "asset_name", unique = true)
+    String assetName;
 
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "generaldata_id")
     GeneralData general;
 
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "contributor_group_id")
+    @JoinColumn(name = "contributorgroup_id")
     Contributors contributors;
 }

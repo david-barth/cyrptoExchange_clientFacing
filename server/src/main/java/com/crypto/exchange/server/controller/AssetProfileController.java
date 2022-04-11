@@ -18,7 +18,7 @@ public class AssetProfileController {
     //TODO: Implement Redis caching in order to optimize retrieval time
     @GetMapping("profile/{assetName}")
     public Profile getAssetProfile(@PathVariable String assetName) {
-        return assetProfileService.fetchAssetProfileInfo("/v2/assets/" + assetName + "/profile");
+        return assetProfileService.fetchAssetProfileInfo("/v2/assets/" + assetName + "/profile", assetName);
     }
 
 
