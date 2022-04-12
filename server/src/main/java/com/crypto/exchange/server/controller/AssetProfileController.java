@@ -15,7 +15,7 @@ public class AssetProfileController {
 
     private AssetProfileService assetProfileService;
 
-    //TODO: Implement Redis caching in order to optimize retrieval time
+    //TODO: Implement code to flatten DTO to an entity object with a better set of tables.
     @GetMapping("profile/{assetName}")
     public Profile getAssetProfile(@PathVariable String assetName) {
         return assetProfileService.fetchAssetProfileInfo("/v2/assets/" + assetName + "/profile", assetName);

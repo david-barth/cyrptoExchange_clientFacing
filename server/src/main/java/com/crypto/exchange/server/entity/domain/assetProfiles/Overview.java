@@ -29,9 +29,6 @@ public class Overview {
     @Column(name = "sector")
     String sector;
 
-    @Column(name = "project_details")
-    String project_details;
-
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @org.hibernate.annotations.Fetch(FetchMode.SELECT)
     @JoinColumn(name = "assetoverview_id")

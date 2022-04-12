@@ -31,9 +31,6 @@ public class Contributor {
     @Column(name = "title")
     String title;
 
-    @Column(name = "description")
-    String description;
-
     @Column(name = "avatar_url")
     String avatar_url;
 }

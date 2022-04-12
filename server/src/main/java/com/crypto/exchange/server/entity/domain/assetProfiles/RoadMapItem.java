@@ -27,6 +27,4 @@ public class RoadMapItem {
     @Column(name = "type")
     String type;
 
-    @Column(name = "details")
-    String details;
 }

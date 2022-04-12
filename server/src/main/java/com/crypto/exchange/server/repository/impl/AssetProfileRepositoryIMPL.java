@@ -17,19 +17,15 @@ public class AssetProfileRepositoryIMPL implements AssetProfileRepository {
 
     private EntityManager entityManager;
 
-    /* Continuation notes:
-        1. The data model needs to be redefined to include unique constrains on the names of the cryptocurrencies to ensure adequate retrieval of the profile for checking.
-        2. A new repository method for retrieving a unique cryptocurrency profile signature must be obtained for the verification step in the AssetProfileService REST call.
-        3. The service methods must be refactored to include the check in the database for the identifier.
-        4. The retrieve profiles resource endpoint must be refactored to retrieve all cryptocurrency profiles specified in the POST body.
-    * */
-
-    public String retrieveAssetOnRecord(String assetName) {
-        return entityManager.find(AssetOnRecord.class, assetName).toString();
+    public AssetOnRecord retrieveAssetOnRecord(String assetName) {
+        return entityManager.find(AssetOnRecord.class, assetName);
     }
 
-    public void saveAssetProfile(Profile assetProfile) {
-        entityManager.persist(assetProfile.getData().getProfile());
+    public void saveAssetProfile(Profile profileContainer, String assetName) {
+        AssetProfile assetProfile = profileContainer.getData().getProfile();
+        assetProfile.setAssetName(assetName);
+        entityManager.persist(new AssetOnRecord(assetName));
+        entityManager.persist(assetProfile);
     }
 
     public AssetProfile retrieveAssetProfile(String assetName) {

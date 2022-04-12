@@ -21,20 +21,20 @@ public class AssetProfileService {
     public Profile fetchAssetProfileInfo(String assetURI, String assetName) {
         Profile assetProfile;
         boolean isAssetPresent = Optional.ofNullable(profileRepo.retrieveAssetOnRecord(assetName)).isPresent();
-        if (!isAssetPresent) {
+        if (isAssetPresent) {
+            assetProfile = new Profile();
+            ProfileData profileData = new ProfileData();
+            profileData.setProfile(profileRepo.retrieveAssetProfile(assetName));
+            assetProfile.setData(profileData);
+            return assetProfile;
+        }
+        else {
             assetProfile = cryptoInfoWebClient.get()
                     .uri(assetURI)
                     .retrieve()
                     .bodyToMono(Profile.class)
                     .block();
-            profileRepo.saveAssetProfile(assetProfile);
-            return assetProfile;
-        }
-        else {
-            assetProfile = new Profile();
-            ProfileData profileData = new ProfileData();
-            profileData.setProfile(profileRepo.retrieveAssetProfile(assetName));
-            assetProfile.setData(profileData);
+            profileRepo.saveAssetProfile(assetProfile, assetName);
             return assetProfile;
         }
     }
