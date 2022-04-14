@@ -1,12 +1,12 @@
-package com.crypto.exchange.server.entity.domain.assetProfiles;
+package com.crypto.exchange.server.models.dto;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@NoArgsConstructor
-@Getter
-@Setter
+
+@Data
 public class Profile {
     private ProfileData data;
 }

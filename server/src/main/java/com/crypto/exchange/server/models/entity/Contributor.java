@@ -1,23 +1,18 @@
-package com.crypto.exchange.server.entity.domain.assetProfiles;
+package com.crypto.exchange.server.models.entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.Data;
 
 import javax.persistence.*;
 
-@NoArgsConstructor
-@Getter
-@Setter
+
+@Data
 @Entity
 @Table(name = "contributors")
 public class Contributor {
-
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
-    private int ID;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    int ID;
 
     @Column(name = "slug")
     String slug;
