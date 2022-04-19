@@ -1,12 +1,18 @@
-package com.crypto.exchange.server.models.entity;
+package com.crypto.exchange.server.models.common;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 @Data
 @Entity
 @Table(name = "roadmap_items")
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class RoadMapItem {
     @Id
     @Column(name = "ID")

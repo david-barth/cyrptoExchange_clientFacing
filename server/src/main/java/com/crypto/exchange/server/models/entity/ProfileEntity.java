@@ -1,7 +1,10 @@
 package com.crypto.exchange.server.models.entity;
 
 
-import lombok.Data;
+import com.crypto.exchange.server.models.common.Contributor;
+import com.crypto.exchange.server.models.common.Link;
+import com.crypto.exchange.server.models.common.RoadMapItem;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -9,7 +12,10 @@ import java.util.Set;
 @Entity
 @Table(name = "asset_profiles")
 @Data
-public class AssetProfile {
+@Builder
+@AllArgsConstructor
+@RequiredArgsConstructor
+public class ProfileEntity {
 
     @Id
     @Column(name = "asset_name", unique = true)
@@ -33,15 +39,15 @@ public class AssetProfile {
     @Column(name = "sector")
     String sector;
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "profile_id")
     Set<Link> official_links;
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "profile_id")
     Set<RoadMapItem> roadmap;
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "profile_id")
     Set<Contributor> individuals;
 }

@@ -1,6 +1,9 @@
-package com.crypto.exchange.server.models.entity;
+package com.crypto.exchange.server.models.common;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
@@ -8,6 +11,9 @@ import javax.persistence.*;
 @Data
 @Entity
 @Table(name = "links")
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Link {
     @Id
     @Column(name = "ID")

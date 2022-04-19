@@ -1,6 +1,5 @@
 package com.crypto.exchange.server.mappers;
 
-public interface BaseMapper<DTO, Entity> {
-    Entity mapDTOtoEntity(DTO dto);
-    DTO mapEntityToDTO(Entity entity);
+public interface UnidirectionalBaseMapper<A, B> {
+    A mapObject(B B);
 }

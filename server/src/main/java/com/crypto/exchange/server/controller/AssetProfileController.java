@@ -1,6 +1,7 @@
 package com.crypto.exchange.server.controller;
 
 import com.crypto.exchange.server.models.dto.Profile;
+import com.crypto.exchange.server.models.entity.ProfileEntity;
 import com.crypto.exchange.server.service.AssetProfileService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -12,9 +13,8 @@ public class AssetProfileController {
 
     private AssetProfileService assetProfileService;
 
-    //TODO: Implement code to flatten DTO to an entity object with a better set of tables.
     @GetMapping("profile/{assetName}")
-    public Profile getAssetProfile(@PathVariable String assetName) {
+    public ProfileEntity getAssetProfile(@PathVariable String assetName) {
         return assetProfileService.fetchAssetProfileInfo("/v2/assets/" + assetName + "/profile", assetName);
     }
 

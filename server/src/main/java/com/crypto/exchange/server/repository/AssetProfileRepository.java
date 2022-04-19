@@ -1,10 +1,8 @@
 package com.crypto.exchange.server.repository;
 
-
-import com.crypto.exchange.server.models.dto.AssetProfile;
-import com.crypto.exchange.server.models.dto.Profile;
+import com.crypto.exchange.server.models.entity.ProfileEntity;
 
 public interface AssetProfileRepository {
-    void saveAssetProfile(Profile assetProfile, String assetName);
-    AssetProfile retrieveAssetProfile(String assetName);
+    void saveAssetProfile(ProfileEntity assetProfile);
+    ProfileEntity retrieveAssetProfile(String assetName);
 }
