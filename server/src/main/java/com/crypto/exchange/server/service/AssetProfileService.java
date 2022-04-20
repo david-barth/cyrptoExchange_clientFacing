@@ -20,7 +20,7 @@ public class AssetProfileService {
     private AssetProfileMapper mapper;
 
 
-    //Note: 5x latency performance improvement with DB saving, rather than relying on the
+    //Note: 5x latency performance improvement with DB saving, rather than relying on the external API
     @Transactional
     public ProfileEntity fetchAssetProfileInfo(String assetURI, String assetName) {
         ProfileEntity retrievedProfile = profileRepo.retrieveAssetProfile(assetName);
