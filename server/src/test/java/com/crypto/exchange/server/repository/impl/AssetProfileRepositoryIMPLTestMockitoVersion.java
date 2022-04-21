@@ -30,7 +30,7 @@ public class AssetProfileRepositoryIMPLTestMockitoVersion {
 
     ProfileEntity testProfileEntity;
 
-    
+
     //Note: There is very little point in mocking the Repo class as this should be more properly tested with integration style testing.
     @Test
     public void testRetrieveAssetProfileForSuccessfulRetrieval() {

@@ -35,7 +35,7 @@ public class AssetProfileMapperTest {
     @Test
     public void testForProfileEntityTypeAfterMapping() {
         ProfileEntity testProfileEntity = assetProfileMapper.mapObject(testProfile);
-        Assertions.assertTrue(expectedProfileEntity instanceof ProfileEntity);
+        Assertions.assertTrue(expectedProfileEntity instanceof ProfileEntity); //Bad practice, boolean condition is ambiguous.  Should use assertThat for type check.
     }
 
 

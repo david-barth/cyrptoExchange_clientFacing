@@ -18,17 +18,4 @@ public class AssetProfileController {
         return assetProfileService.fetchAssetProfileInfo("/v2/assets/" + assetName + "/profile", assetName);
     }
 
-
-
-    //TODO: Fix Code for the assetList
-    /*@PostMapping("getProfileList")
-    public List<Profile> getAssetQuoteList(@RequestBody AssetList assetList) {
-        List<Profile> assetProfileList = new ArrayList<>();
-        for (String assetName : assetList.getAssetList()) {
-            Profile assetProfile = assetProfileService.fetchAssetProfileInfo("/v2/assets/" + assetName + "/profile");
-            assetProfileList.add(assetProfile);
-        }
-        return assetProfileList;
-    }*/
-
 }
