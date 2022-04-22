@@ -9,7 +9,7 @@ import com.crypto.exchange.server.models.entity.ProfileEntity;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.modelmapper.internal.util.Assert;
+import org.springframework.util.Assert;
 
 
 import java.util.HashSet;
@@ -130,7 +130,8 @@ public class AssetProfileMapperTest {
                 .slug("bitcoin")
                 .build();
 
-        Profile testProfile = Profile.builder().data(testProfileData).build();
+        Profile testProfile = new Profile();
+        testProfile.setData(testProfileData);
 
         ProfileEntity expectedProfileEntity = ProfileEntity.builder()
                 .assetName("BTC")

@@ -191,8 +191,9 @@ public class AssetProfileServiceTest {
                 .symbol("BTC")
                 .slug("bitcoin")
                 .build();
+        Profile dtoProfile = new Profile();
+        dtoProfile.setData(testProfileData);
 
-        Profile dtoProfile = Profile.builder().data(testProfileData).build();
         return dtoProfile;
     }
 }

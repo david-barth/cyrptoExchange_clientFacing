@@ -13,8 +13,8 @@ import java.util.Set;
 @Table(name = "asset_profiles")
 @Data
 @Builder
+@NoArgsConstructor
 @AllArgsConstructor
-@RequiredArgsConstructor
 public class ProfileEntity {
 
     @Id

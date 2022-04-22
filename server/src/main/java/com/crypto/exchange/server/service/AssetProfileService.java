@@ -34,7 +34,7 @@ public class AssetProfileService {
                     .retrieve()
                     .bodyToMono(Profile.class)
                     .block();
-
+            System.out.println(responseProfile);
             ProfileEntity formattedProfile = mapper.mapObject(responseProfile);
             profileRepo.saveAssetProfile(formattedProfile);
             return formattedProfile;

@@ -1,6 +1,6 @@
 package com.crypto.exchange.server.controller;
 
-import com.crypto.exchange.server.models.dto.Profile;
+
 import com.crypto.exchange.server.models.entity.ProfileEntity;
 import com.crypto.exchange.server.service.AssetProfileService;
 import lombok.AllArgsConstructor;
