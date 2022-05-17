@@ -18,7 +18,6 @@ import java.util.Optional;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
-@AutoConfigureMockMvc
 @Transactional
 public class AssetProfileControllerTest {
 

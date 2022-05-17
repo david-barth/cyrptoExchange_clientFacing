@@ -1,24 +1,25 @@
 package com.crypto.exchange.server.mappers.impl;
 
-import com.crypto.exchange.server.mappers.UnidirectionalBaseMapper;
 import com.crypto.exchange.server.models.common.Contributor;
 import com.crypto.exchange.server.models.common.Link;
 import com.crypto.exchange.server.models.common.RoadMapItem;
 import com.crypto.exchange.server.models.dto.*;
 import com.crypto.exchange.server.models.entity.ProfileEntity;
-import lombok.AllArgsConstructor;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.util.Set;
+import java.util.function.Function;
 
 
 @Component
-@AllArgsConstructor
-public class AssetProfileMapper implements UnidirectionalBaseMapper<ProfileEntity, Profile> {
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
+public class AssetProfileMapper implements Function<Profile, ProfileEntity> {
 
+    public static final AssetProfileMapper ASSET_PROFILE_MAPPER = new AssetProfileMapper();
 
-    //TODO: Figure out best way to handle mapper error when root is null in DTO (Ie handle nullpointer exception)
-    public ProfileEntity mapObject(Profile profileDTO) {
+    public ProfileEntity apply(Profile profileDTO) {
 
         //Get individual parts:
         ProfileData profileData = profileDTO.getData();

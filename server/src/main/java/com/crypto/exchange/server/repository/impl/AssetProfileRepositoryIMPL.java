@@ -9,6 +9,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
+import java.util.Optional;
 
 
 @Repository
@@ -17,8 +18,6 @@ public class AssetProfileRepositoryIMPL implements AssetProfileRepository {
 
     private EntityManager entityManager;
 
-    //Code smell: Not having some sort of exception emitted here and/or a success boolean emitted upon successful persisting
-    //TODO: Refactor this try - catch when a proper aspect based error handler is implemented here.
     public void saveAssetProfile(ProfileEntity formattedProfile) {
         try {
             entityManager.persist(formattedProfile);
@@ -27,8 +26,8 @@ public class AssetProfileRepositoryIMPL implements AssetProfileRepository {
         }
     }
 
-    public ProfileEntity retrieveAssetProfile(String assetName) {
-        return entityManager.find(ProfileEntity.class, assetName);
+    public Optional<ProfileEntity> retrieveAssetProfile(String assetName) {
+        return Optional.ofNullable(entityManager.find(ProfileEntity.class, assetName));
     }
 
 }

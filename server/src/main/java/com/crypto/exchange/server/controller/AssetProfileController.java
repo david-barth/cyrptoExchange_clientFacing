@@ -13,7 +13,7 @@ public class AssetProfileController {
 
     private AssetProfileService assetProfileService;
 
-    @GetMapping("profile/{assetName}")
+    @GetMapping("/profile/{assetName}")
     public ProfileEntity getAssetProfile(@PathVariable String assetName) {
         return assetProfileService.fetchAssetProfileInfo("/v2/assets/" + assetName + "/profile", assetName);
     }

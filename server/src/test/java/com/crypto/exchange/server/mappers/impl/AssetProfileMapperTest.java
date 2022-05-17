@@ -1,6 +1,5 @@
 package com.crypto.exchange.server.mappers.impl;
 
-import com.crypto.exchange.server.mappers.UnidirectionalBaseMapper;
 import com.crypto.exchange.server.models.common.Contributor;
 import com.crypto.exchange.server.models.common.Link;
 import com.crypto.exchange.server.models.common.RoadMapItem;
@@ -14,11 +13,12 @@ import org.springframework.util.Assert;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.function.Function;
 
 
 public class AssetProfileMapperTest {
 
-    private UnidirectionalBaseMapper<ProfileEntity, Profile> assetProfileMapper = new AssetProfileMapper();
+    private Function<Profile, ProfileEntity> assetProfileMapper = AssetProfileMapper.ASSET_PROFILE_MAPPER;
     private ProfileEntity expectedProfileEntity;
     private Profile testProfile;
 
@@ -26,7 +26,7 @@ public class AssetProfileMapperTest {
     //Normal expected output:
     @Test
     public void testAssetProfileMappingForNormalOutput() {
-        ProfileEntity testProfileEntity = assetProfileMapper.mapObject(testProfile);
+        ProfileEntity testProfileEntity = assetProfileMapper.apply(testProfile);
         Assertions.assertEquals(expectedProfileEntity, testProfileEntity);
     }
 
@@ -34,7 +34,7 @@ public class AssetProfileMapperTest {
     //Test for appropriate Mapped Object Type:
     @Test
     public void testForProfileEntityTypeAfterMapping() {
-        ProfileEntity testProfileEntity = assetProfileMapper.mapObject(testProfile);
+        ProfileEntity testProfileEntity = assetProfileMapper.apply(testProfile);
         Assertions.assertTrue(expectedProfileEntity instanceof ProfileEntity); //Bad practice, boolean condition is ambiguous.  Should use assertThat for type check.
     }
 
@@ -43,7 +43,7 @@ public class AssetProfileMapperTest {
     @Test
     public void testMappedEntityForOneNullValueMapping() {
         testProfile.getData().setSymbol(null);
-        ProfileEntity testProfileEntity = assetProfileMapper.mapObject(testProfile);
+        ProfileEntity testProfileEntity = assetProfileMapper.apply(testProfile);
         Assert.isNull(testProfileEntity.getSymbol());
     }
 
@@ -55,7 +55,7 @@ public class AssetProfileMapperTest {
         testProfile.getData().setName(null);
         testProfile.getData().setSymbol(null);
 
-        ProfileEntity testProfileEntity = assetProfileMapper.mapObject(testProfile);
+        ProfileEntity testProfileEntity = assetProfileMapper.apply(testProfile);
 
         Assert.isNull(testProfileEntity.getCategory());
         Assert.isNull(testProfileEntity.getSector());
@@ -68,7 +68,7 @@ public class AssetProfileMapperTest {
     public void testMappingProcessForWhenRootIsRemoved() {
         testProfile.setData(null);
         Assertions.assertThrows(NullPointerException.class, () -> {
-            assetProfileMapper.mapObject(testProfile);
+            assetProfileMapper.apply(testProfile);
         });
     }
 
