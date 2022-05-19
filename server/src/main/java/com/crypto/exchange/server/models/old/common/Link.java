@@ -1,4 +1,4 @@
-package com.crypto.exchange.server.models.common;
+package com.crypto.exchange.server.models.old.common;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -7,25 +7,22 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
+
 @Data
 @Entity
-@Table(name = "roadmap_items")
+@Table(name = "links")
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class RoadMapItem {
+public class Link {
     @Id
     @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int ID;
 
-    @Column(name = "title")
-    String title;
+    @Column(name = "name")
+    String name;
 
-    @Column(name = "date")
-    String date;
-
-    @Column(name = "type")
-    String type;
-
+    @Column(name = "link")
+    String link;
 }

@@ -1,4 +1,4 @@
-package com.crypto.exchange.server.models.dto;
+package com.crypto.exchange.server.models.old.common.dto;
 
 
 import lombok.AllArgsConstructor;

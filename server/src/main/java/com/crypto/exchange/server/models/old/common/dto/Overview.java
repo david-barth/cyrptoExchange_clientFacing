@@ -1,7 +1,7 @@
-package com.crypto.exchange.server.models.dto;
+package com.crypto.exchange.server.models.old.common.dto;
 
 
-import com.crypto.exchange.server.models.common.Link;
+import com.crypto.exchange.server.models.old.common.Link;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

@@ -1,9 +1,9 @@
 package com.crypto.exchange.server.repository.impl;
 
-import com.crypto.exchange.server.models.common.Contributor;
-import com.crypto.exchange.server.models.common.Link;
-import com.crypto.exchange.server.models.common.RoadMapItem;
-import com.crypto.exchange.server.models.entity.ProfileEntity;
+import com.crypto.exchange.server.models.old.common.Contributor;
+import com.crypto.exchange.server.models.old.common.Link;
+import com.crypto.exchange.server.models.old.common.RoadMapItem;
+import com.crypto.exchange.server.models.old.common.entity.ProfileEntity;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

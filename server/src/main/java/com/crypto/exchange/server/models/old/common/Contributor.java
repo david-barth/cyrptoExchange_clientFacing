@@ -1,4 +1,4 @@
-package com.crypto.exchange.server.models.common;
+package com.crypto.exchange.server.models.old.common;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

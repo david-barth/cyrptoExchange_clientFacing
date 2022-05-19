@@ -1,7 +1,7 @@
 package com.crypto.exchange.server.service;
 
-import com.crypto.exchange.server.models.dto.Profile;
-import com.crypto.exchange.server.models.entity.ProfileEntity;
+import com.crypto.exchange.server.models.old.common.dto.Profile;
+import com.crypto.exchange.server.models.old.common.entity.ProfileEntity;
 import com.crypto.exchange.server.repository.AssetProfileRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;

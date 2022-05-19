@@ -1,10 +1,13 @@
 package com.crypto.exchange.server.mappers.impl;
 
-import com.crypto.exchange.server.models.common.Contributor;
-import com.crypto.exchange.server.models.common.Link;
-import com.crypto.exchange.server.models.common.RoadMapItem;
-import com.crypto.exchange.server.models.dto.*;
-import com.crypto.exchange.server.models.entity.ProfileEntity;
+import com.crypto.exchange.server.models.old.common.Contributor;
+import com.crypto.exchange.server.models.old.common.Link;
+import com.crypto.exchange.server.models.old.common.RoadMapItem;
+import com.crypto.exchange.server.models.old.common.dto.GeneralData;
+import com.crypto.exchange.server.models.old.common.dto.Overview;
+import com.crypto.exchange.server.models.old.common.dto.Profile;
+import com.crypto.exchange.server.models.old.common.dto.ProfileData;
+import com.crypto.exchange.server.models.old.common.entity.ProfileEntity;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;

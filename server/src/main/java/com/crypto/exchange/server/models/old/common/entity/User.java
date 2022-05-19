@@ -1,4 +1,4 @@
-package com.crypto.exchange.server.models.entity;
+package com.crypto.exchange.server.models.old.common.entity;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

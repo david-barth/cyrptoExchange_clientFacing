@@ -1,6 +1,6 @@
 package com.crypto.exchange.server.repository;
 
-import com.crypto.exchange.server.models.entity.User;
+import com.crypto.exchange.server.models.old.common.entity.User;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;

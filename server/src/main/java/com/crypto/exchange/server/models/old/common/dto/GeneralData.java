@@ -1,6 +1,6 @@
-package com.crypto.exchange.server.models.dto;
+package com.crypto.exchange.server.models.old.common.dto;
 
-import com.crypto.exchange.server.models.common.RoadMapItem;
+import com.crypto.exchange.server.models.old.common.RoadMapItem;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

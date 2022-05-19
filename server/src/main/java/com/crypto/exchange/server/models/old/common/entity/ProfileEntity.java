@@ -1,9 +1,9 @@
-package com.crypto.exchange.server.models.entity;
+package com.crypto.exchange.server.models.old.common.entity;
 
 
-import com.crypto.exchange.server.models.common.Contributor;
-import com.crypto.exchange.server.models.common.Link;
-import com.crypto.exchange.server.models.common.RoadMapItem;
+import com.crypto.exchange.server.models.old.common.Contributor;
+import com.crypto.exchange.server.models.old.common.Link;
+import com.crypto.exchange.server.models.old.common.RoadMapItem;
 import lombok.*;
 
 import javax.persistence.*;

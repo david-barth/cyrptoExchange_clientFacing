@@ -1,12 +1,11 @@
 package com.crypto.exchange.server.controller;
 
 
-import com.crypto.exchange.server.models.entity.ProfileEntity;
+import com.crypto.exchange.server.models.old.common.entity.ProfileEntity;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 

@@ -1,7 +1,7 @@
 package com.crypto.exchange.server.service;
 
 
-import com.crypto.exchange.server.models.entity.User;
+import com.crypto.exchange.server.models.old.common.entity.User;
 import com.crypto.exchange.server.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
