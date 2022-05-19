@@ -19,9 +19,9 @@ import org.springframework.web.reactive.function.client.WebClientResponseExcepti
 import reactor.core.publisher.Mono;
 
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
-import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
 
@@ -60,7 +60,7 @@ public class AssetProfileServiceTest {
     //Retrieved successfully with already saved profile: assetName has been supplied previously
     @Test
     public void givenAProperAssetName_whenRetrievingAssetProfile_thenSuccessfulRetrievalFromDB() {
-        when(mockAssetProfileRepo.retrieveAssetProfile("BTC")).thenReturn(actualProfileEntity);
+        when(mockAssetProfileRepo.retrieveAssetProfile("BTC")).thenReturn(Optional.ofNullable(actualProfileEntity));
         ProfileEntity testProfileEntity = testService.fetchAssetProfileInfo(assetURI, "BTC");
         Assertions.assertEquals(testProfileEntity, actualProfileEntity);
     }
@@ -75,7 +75,7 @@ public class AssetProfileServiceTest {
         when(mockRequestHeaderSpec.retrieve()).thenReturn(mockResponseSpec);
         when(mockResponseSpec.bodyToMono(Profile.class)).thenReturn(mockMonoProfile);
         when(mockMonoProfile.block()).thenReturn(testDTO);
-        when(mockMapper.mapObject(testDTO)).thenReturn(actualProfileEntity);
+        when(mockMapper.apply(testDTO)).thenReturn(actualProfileEntity);
         ProfileEntity testProfileEntity = testService.fetchAssetProfileInfo(assetURI, "BTC");
         Assertions.assertEquals(actualProfileEntity, testProfileEntity);
     }

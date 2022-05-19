@@ -1,6 +1,5 @@
 package com.crypto.exchange.server.service;
 
-import com.crypto.exchange.server.mappers.impl.AssetProfileMapper;
 import com.crypto.exchange.server.models.dto.Profile;
 import com.crypto.exchange.server.models.entity.ProfileEntity;
 import com.crypto.exchange.server.repository.AssetProfileRepository;
@@ -9,6 +8,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
 import javax.transaction.Transactional;
+
+import static com.crypto.exchange.server.mappers.impl.AssetProfileMapper.ASSET_PROFILE_MAPPER;
+
+
+
 import java.util.Optional;
 
 @Service
@@ -17,28 +21,25 @@ public class AssetProfileService {
 
     private AssetProfileRepository profileRepo;
     private WebClient cryptoInfoWebClient;
-    private AssetProfileMapper mapper;
 
 
-    //Note: 5x latency performance improvement with DB saving, rather than relying on the external API
     @Transactional
     public ProfileEntity fetchAssetProfileInfo(String assetURI, String assetName) {
-        ProfileEntity retrievedProfile = profileRepo.retrieveAssetProfile(assetName);
-        boolean isAssetPresent = Optional.ofNullable(retrievedProfile).isPresent();
-        if (isAssetPresent) {
-            return retrievedProfile;
+        Optional<ProfileEntity> retrievedProfile = profileRepo.retrieveAssetProfile(assetName);
+        if (retrievedProfile.isPresent()) {
+            return retrievedProfile.get();
         }
-        else {
-            Profile responseProfile = cryptoInfoWebClient.get()
+
+        Profile responseProfile = Optional.ofNullable(cryptoInfoWebClient.get()
                     .uri(assetURI)
                     .retrieve()
                     .bodyToMono(Profile.class)
-                    .block();
-            System.out.println(responseProfile);
-            ProfileEntity formattedProfile = mapper.mapObject(responseProfile);
-            profileRepo.saveAssetProfile(formattedProfile);
-            return formattedProfile;
-        }
-    }
+                    .block()).orElseThrow();
 
+        ProfileEntity formattedProfile = ASSET_PROFILE_MAPPER.apply(responseProfile);
+        profileRepo.saveAssetProfile(formattedProfile);
+        return formattedProfile;
+    }
 }
+
+

@@ -35,7 +35,7 @@ public class AssetProfileRepositoryIMPLTestMockitoVersion {
     @Test
     public void testRetrieveAssetProfileForSuccessfulRetrieval() {
         when(entityManagerMock.find(ProfileEntity.class,"BTC")).thenReturn(testProfileEntity);
-        ProfileEntity actualProfile = testRepo.retrieveAssetProfile("BTC");
+        ProfileEntity actualProfile = testRepo.retrieveAssetProfile("BTC").get();
         Assertions.assertEquals(actualProfile.getSymbol(), testProfileEntity.getSymbol());
         Assertions.assertEquals(actualProfile.getAssetName(), testProfileEntity.getAssetName());
         Assertions.assertEquals(actualProfile.getName(), testProfileEntity.getName());
