@@ -7,9 +7,9 @@ import com.crypto.exchange.server.models.old.common.RoadMapItem;
 import com.crypto.exchange.server.models.old.common.dto.*;
 import com.crypto.exchange.server.models.old.common.entity.ProfileEntity;
 import com.crypto.exchange.server.repository.AssetProfileRepository;
-import org.junit.Ignore;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -70,7 +70,7 @@ public class AssetProfileServiceTest {
     //Mockito for Method Chaining: Need to use a when().thenReturn() for each method in the chain.
     //Each method requires an object to feed to the next.
     @Test
-    @Ignore
+    @Disabled("Temporarily disabled until opportunity to fix comes")
     public void givenANewAssetName_whenRetrievingAssetProfile_thenSuccessfulRESTCall() {
         when(mockWebClient.get()).thenReturn(mockURISpec);
         when(mockURISpec.uri(assetURI)).thenReturn(mockRequestHeaderSpec);
