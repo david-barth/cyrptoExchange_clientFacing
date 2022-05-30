@@ -24,12 +24,9 @@ public class MarketData {
     @JsonProperty("percent_change_btc_last_24_hours")
     float lastDayPercentChangeBTC;
 
-
-    //TODO: Can compress this to a list and perhaps use a customs serializer in order to make this work better.
     @JsonProperty("ohlcv_last_1_hour")
     Ohlcv lastHourOhlcv;
 
-    @JsonProperty
+    @JsonProperty("ohlcv_last_24_hour")
     Ohlcv lastDayOHlcv;
-
 }

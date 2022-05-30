@@ -10,3 +10,4 @@ public class Ohlcv {
     float close;
     double volume;
 }
+

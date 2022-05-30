@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 public interface MessariClient {
 
 
-    //TODO: Need to debug null values in response.
     //Get Asset Market Data
     @GetMapping(path = "/v1/assets/{assetKey}/metrics/market-data", produces = "application/json")
     MarketDataResponse getMarketData(@PathVariable String assetKey);
