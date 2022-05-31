@@ -48,6 +48,8 @@
                             <goal>generate</goal>
                         </goals>
                         <configuration>
+                            <!-- Option 1: Point to URL / endpoint within InputSpec??? -->
+                            <!-- Option 2: Use shell script to do codegen in compile / build time-->
                             <inputSpec>${project.basedir}/src/main/resources/api.json</inputSpec>
                             <language>java</language>
                             <generateApiTests>false</generateApiTests>
