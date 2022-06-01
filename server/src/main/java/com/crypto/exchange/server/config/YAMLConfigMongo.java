@@ -1,16 +1,29 @@
 package com.crypto.exchange.server.config;
 
-
-import lombok.Getter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@EnableConfigurationProperties
-@ConfigurationProperties("mongo")
-@Getter
+@ConfigurationProperties(prefix = "mongo")
 public class YAMLConfigMongo {
     private String url;
     private String DBname;
+
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getDBname() {
+        return DBname;
+    }
+
+    public void setDBname(String DBname) {
+        this.DBname = DBname;
+    }
 }
+

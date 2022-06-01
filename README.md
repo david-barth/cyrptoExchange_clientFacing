@@ -5,9 +5,17 @@ The client facing module for the crypto exchange project
 //Current TODOs: 
 
 
-    2. Figure out warning issues on startup and correct if necessary. 
+    ---> Do a brief overview of basic MongoDB concepts to understand basic operating theory
 
-    3. Add MongoDB as a data source (config + simple integration)
+    ---> Start implementation work on caching ability (cf MySQL version) 
 
-    4. Add MongoDB as a caching mechanism for the app. 
+
+
+//Future TODOS: 
+
+    ---> Figure out warning issues on startup and correct if necessary. 
+
+    ---> Make a conversion of current application.properties to application.yml
+
+
 
