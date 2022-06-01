@@ -4,10 +4,9 @@ The client facing module for the crypto exchange project
 
 //Current TODOs: 
 
+    ---> Continuation: Learn more about the basics of ORM code for MongoDB in SpringBoot in order to continue Implementation. 
 
-    ---> Do a brief overview of basic MongoDB concepts to understand basic operating theory
 
-    ---> Start implementation work on caching ability (cf MySQL version) 
 
 
 
