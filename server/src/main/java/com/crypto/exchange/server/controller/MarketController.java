@@ -1,7 +1,7 @@
 package com.crypto.exchange.server.controller;
 
 
-import com.crypto.exchange.server.models.domain.marketdata.MarketDataResponse;
+import com.crypto.exchange.server.models.domain.marketdata.MarketData;
 import com.crypto.exchange.server.service.MarketDataService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,7 +17,7 @@ public class MarketController {
     MarketDataService marketDataService;
 
     @GetMapping("/marketData/{assetKey}")
-    public MarketDataResponse getMarketData(@PathVariable String assetKey) {
+    public MarketData getMarketData(@PathVariable String assetKey) {
         return marketDataService.getMarketDataResponse(assetKey);
     }
 }

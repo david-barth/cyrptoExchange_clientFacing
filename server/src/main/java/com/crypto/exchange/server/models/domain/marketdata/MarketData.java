@@ -2,9 +2,16 @@ package com.crypto.exchange.server.models.domain.marketdata;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+import javax.persistence.Id;
 
 @Data
+@Document("CryptoData")
 public class MarketData {
+
+    @Id
+    String assetKey;
 
     double price_usd;
     double price_btc;
