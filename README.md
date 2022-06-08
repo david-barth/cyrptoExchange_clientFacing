@@ -4,9 +4,11 @@ The client facing module for the crypto exchange project
 
 //Current TODOs: 
 
-    ---> Continuation: Learn more about the basics of ORM code for MongoDB in SpringBoot in order to continue Implementation. 
+    ---> Create another endpoint for all exchanges data. 
 
+    ---> Create the appropriately named collections for the market and exchanges data. 
 
+    ---> Introduce a pagination feature into the results querying. 
 
 
 

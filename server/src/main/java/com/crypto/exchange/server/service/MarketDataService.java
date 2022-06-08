@@ -18,6 +18,10 @@ public class MarketDataService {
     MarketDataRepository marketDataRepository;
 
     public MarketData getMarketDataResponse(String assetKey) {
+        Optional<MarketData> optionalMarketData = marketDataRepository.findMarketData(assetKey);
+        if (optionalMarketData.isPresent())
+            return optionalMarketData.get();
+
         Optional<MarketDataResponse> optMarketDataResponse = Optional.ofNullable(messariClient.getMarketData(assetKey.toLowerCase()));
         MarketData marketData = optMarketDataResponse.get().getReponseData().getMarketData();
         marketData.setAssetKey(assetKey);

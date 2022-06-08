@@ -3,14 +3,14 @@ package com.crypto.exchange.server.models.domain.marketdata;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.MongoId;
 
-import javax.persistence.Id;
 
 @Data
-@Document("CryptoData")
+@Document("MarketData")
 public class MarketData {
 
-    @Id
+    @MongoId
     String assetKey;
 
     double price_usd;

@@ -14,7 +14,6 @@ public class MarketDataRepositoryIMPL implements MarketDataRepository {
 
     MongoTemplate mongoTemplate;
 
-    //TODO: Finish this method and then test + refine the slice of functionality.
     public Optional<MarketData> findMarketData(String assetKey) {
         return Optional.ofNullable(mongoTemplate.findById(assetKey, MarketData.class));
     }

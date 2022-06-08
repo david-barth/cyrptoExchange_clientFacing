@@ -8,6 +8,8 @@ import lombok.AllArgsConstructor;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.mongodb.MongoDatabaseFactory;
+import org.springframework.data.mongodb.MongoTransactionManager;
 import org.springframework.data.mongodb.core.MongoTemplate;
 
 @Configuration
@@ -31,5 +33,9 @@ public class MongoConfig {
         return new MongoTemplate(mongoClient(), configProps.getDBname());
     }
 
+    @Bean
+    MongoTransactionManager transactionManager(MongoDatabaseFactory dbFactory) {
+        return new MongoTransactionManager(dbFactory);
+    }
 
 }
