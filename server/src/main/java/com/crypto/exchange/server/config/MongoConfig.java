@@ -1,5 +1,7 @@
 package com.crypto.exchange.server.config;
 
+import com.crypto.exchange.server.repository.ExchangeDataRepository;
+import com.crypto.exchange.server.repository.impl.ExchangeDataRepositoryImpl;
 import com.mongodb.ConnectionString;
 import com.mongodb.MongoClientSettings;
 import com.mongodb.client.MongoClient;
@@ -34,7 +36,7 @@ public class MongoConfig {
     }
 
     @Bean
-    MongoTransactionManager transactionManager(MongoDatabaseFactory dbFactory) {
+    public MongoTransactionManager transactionManager(MongoDatabaseFactory dbFactory) {
         return new MongoTransactionManager(dbFactory);
     }
 

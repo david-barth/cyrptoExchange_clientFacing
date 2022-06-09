@@ -2,13 +2,22 @@
 The client facing module for the crypto exchange project
 
 
-//Current TODOs: 
+//Current TODOs:
 
-    ---> Create another endpoint for all exchanges data. 
+    ---> Introduce a couple of endpoints in order to experiment with MongoDB queries: 
 
-    ---> Create the appropriately named collections for the market and exchanges data. 
+            A. Get exchanges by complex query via post request for subset of exchanges: 
 
-    ---> Introduce a pagination feature into the results querying. 
+                1. Exchange name
+
+                2. Price range (price usd) => x <= price <= y
+
+                3. Symbol
+
+
+
+
+            B. Obtain total price over all exchanges (Simple Aggregation Example) 
 
 
 

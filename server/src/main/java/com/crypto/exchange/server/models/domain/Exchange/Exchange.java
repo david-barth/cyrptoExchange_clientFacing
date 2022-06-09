@@ -2,15 +2,14 @@ package com.crypto.exchange.server.models.domain.Exchange;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
-import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document("Exchanges")
 @Data
 public class Exchange {
-    @Id
+
     @JsonProperty("exchange_name")
-    String id;
+    String exchange;
 
     @JsonProperty("class")
     String exchangeClass;

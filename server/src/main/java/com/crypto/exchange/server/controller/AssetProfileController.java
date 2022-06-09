@@ -17,5 +17,4 @@ public class AssetProfileController {
     public ProfileEntity getAssetProfile(@PathVariable String assetName) {
         return assetProfileService.fetchAssetProfileInfo("/v2/assets/" + assetName + "/profile", assetName);
     }
-
 }

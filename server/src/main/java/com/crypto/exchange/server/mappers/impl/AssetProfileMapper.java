@@ -16,7 +16,6 @@ import java.util.Set;
 import java.util.function.Function;
 
 
-@Component
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class AssetProfileMapper implements Function<Profile, ProfileEntity> {
 
