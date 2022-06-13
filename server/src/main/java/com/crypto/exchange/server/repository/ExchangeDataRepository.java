@@ -10,4 +10,5 @@ public interface ExchangeDataRepository {
     public List<Exchange> getAllExchanges();
     public boolean exchangesExist();
     public List<Exchange> getExchangeSubset(ExchangeRequestBody request);
+    public List<Exchange> getExchangesByQuoteSymbol(String assetKey);
 }

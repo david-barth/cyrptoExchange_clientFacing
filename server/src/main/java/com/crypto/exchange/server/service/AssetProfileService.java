@@ -1,5 +1,6 @@
 package com.crypto.exchange.server.service;
 
+import com.crypto.exchange.server.models.domain.transfer.CointAnalytics;
 import com.crypto.exchange.server.models.old.common.dto.Profile;
 import com.crypto.exchange.server.models.old.common.entity.ProfileEntity;
 import com.crypto.exchange.server.repository.AssetProfileRepository;
@@ -40,6 +41,18 @@ public class AssetProfileService {
         profileRepo.saveAssetProfile(formattedProfile);
         return formattedProfile;
     }
+
+    @Transactional
+    public CointAnalytics processAnalytics(CointAnalytics cointAnalytics, String assetKey) {
+        ProfileEntity retrievedProfile = profileRepo.retrieveAssetProfile(assetKey.toUpperCase()).get();
+        cointAnalytics.setAssetProfileCount(1);
+        cointAnalytics.setContributorCount(retrievedProfile.getIndividuals().size());
+        cointAnalytics.setLinksCount(retrievedProfile.getOfficial_links().size());
+        cointAnalytics.setRoadItemsCount(retrievedProfile.getRoadmap().size());
+        return cointAnalytics;
+    }
+
+
 }
 
 

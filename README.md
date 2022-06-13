@@ -6,18 +6,21 @@ The client facing module for the crypto exchange project
 
     ---> Introduce a couple of endpoints in order to experiment with MongoDB queries: 
 
-            A. Get exchanges by complex query via post request for subset of exchanges: 
 
-                1. Exchange name
-
-                2. Price range (price usd) => x <= price <= y
-
-                3. Symbol
+            B. Design a data transfer mechanism between the MySQL DB and MongoDB.
 
 
+                ---> Idea: 
 
 
-            B. Obtain total price over all exchanges (Simple Aggregation Example) 
+                        6. Configure a cron job in order to load there every x minutes (precise amount - tbd). 
+
+
+
+
+
+            C. Consider and implement unit test cases. 
+
 
 
 
